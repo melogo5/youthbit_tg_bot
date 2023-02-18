@@ -123,41 +123,60 @@ const RoomPage: React.FC<RoomCardProps> = props => {
     }, [rooms])
 
     return (
-        <div className="">
-            <Title>{mainInfo.name}</Title>
-            <Button>Оставить заявку</Button>
-            <div className="">
-                <Button>Общая информация</Button>
-                <Button>Комнаты</Button>
-                <Button>Условия заселения</Button>
-                <Button>Документы</Button>
+        <div className="page-wrap">
+            <div className="section-wrap">
+                <Title level={3}>{mainInfo.name}</Title>
+                <Button type="primary" size="large">Оставить заявку</Button>
             </div>
-            <div>
-                <Title level={2}>Общая информация</Title>
+            <div className="section-wrap">
+                <Title level={5}>Контент</Title>
+                <nav className="nav">
+                    <ul>
+                        <li><a href="#general">Общая информация</a></li>
+                        <li><a href="#rooms">Комнаты</a></li>
+                        <li><a href="#contact">Контактные данные</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div className="section-wrap card" id="general">
+                <Title level={4}>Общая информация</Title>
                 <img src={mainInfo.photos[0] || ''} alt="" />
-                Образовательная организация
-                {mainInfo.name}<br />
-                Город
-                {mainInfo.city}
-                Адрес
-                {`${mainInfo.street}, ${mainInfo.houseNumber}`}
-                Продолжительность пребывания
-                {`от ${mainInfo.minDays} до ${mainInfo.maxDays}`}
-
+                <p>
+                    Образовательная организация:<br/>
+                    <b>{mainInfo.name}</b>
+                </p>
+                <p>
+                    Город:<br/>
+                    <b>{mainInfo.city}</b>
+                </p>
+                <p>
+                    Адрес:<br/>
+                    <b>{`${mainInfo.street}, ${mainInfo.houseNumber}`}</b>
+                </p>
+                <p>
+                    Продолжительность пребывания:<br/>
+                    <b>{`от ${mainInfo.minDays} до ${mainInfo.maxDays}`}</b>
+                </p>
             </div>
-            <div>
-                <Title level={2}>Комнаты</Title>
-                <Table pagination={false} columns={columns} dataSource={tableData} />
+            <div className="section-wrap card" id="rooms">
+                <Title level={4}>Комнаты</Title>
+                <Table size="small" scroll={{x: '100%'}} pagination={false} columns={columns} dataSource={tableData} />
             </div>
-            <div>
-                <Title level={2}>Контактные данные</Title>
-                <div>
-                    <Title level={3}>Контактные данные организационного комитета принимающей образовательной организации</Title>
-                    {dormitoryItem.details.rules.committee.name}<br />
-                    Телефон<br />
-                    {dormitoryItem.details.rules.committee.phone}<br />
-                    Электронная почта<br />
-                    {dormitoryItem.details.rules.committee.email}<br />
+            <div className="section-wrap card" id="contact">
+                <Title level={4}>Контактные данные</Title>
+                <Title level={5}>Контактные данные организационного комитета принимающей образовательной организации:</Title>
+                <div className="border-card">
+                    <p><b>{dormitoryItem.details.rules.committee.name}</b></p>
+                    <div className="padding-left-16">
+                        <p>
+                            Телефон:<br />
+                            <b>{dormitoryItem.details.rules.committee.phone}</b>
+                        </p>
+                        <p>
+                            Электронная почта:<br />
+                            <b>{dormitoryItem.details.rules.committee.email}</b>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

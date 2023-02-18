@@ -1,23 +1,18 @@
-import { Telegraf } from 'telegraf';
+import {
+  Telegraf,
+  session
+} from 'telegraf';
+
+import { stage as firstMeetScene } from './bot_scenes/firstMeet.js';
 
 const token = '5969288783:AAGsRdbhsqrgBkfv6GwAezpva1OJq3AnjcY';
-
 const bot = new Telegraf(token);
 
-bot.command('quit', async (ctx) => {
-  // Explicit usage
-  await ctx.telegram.leaveChat(ctx.message.chat.id);
+bot.use(session());
+bot.use(firstMeetScene.middleware());
 
-  // Using context shortcut
-  await ctx.leaveChat();
-});
-
-bot.on('text', async (ctx) => {
-  // Explicit usage
-  await ctx.telegram.sendMessage(ctx.message.chat.id, `Hello ${ctx.state.role}`);
-
-  // Using context shortcut
-  await ctx.reply(`Hello ${ctx.state.role}`);
+bot.command('start', async (ctx) => {
+  ctx.scene.enter('firstMeet');
 });
 
 bot.on('callback_query', async (ctx) => {

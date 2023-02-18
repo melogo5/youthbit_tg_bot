@@ -18,12 +18,17 @@ const Register: FC = () => {
 
     return (
         <div className="page-register">
-            <InputField controller={controller({ name: "register" })} label={"Register"} />
+            <InputField controller={controller({ name: "register" })} label={"ФИО"} />
+            <InputField controller={controller({ name: "email" })} label={"Номер телефона"} />
+            
+            <select>
+                <option>Студент</option>
+                <option>Молодой специалист</option>
+            </select>
+
             <InputField controller={controller({ name: "email" })} label={"Email"} />
+            <InputField controller={controller({ name: "password" })} label={"Пароль"} />
 
-            <Input.Password />
-
-            <Checkbox>Remember me</Checkbox>
 
             <Button onClick={registerFormSubmit} type="primary" htmlType="submit">
                 Зарегестрироваться

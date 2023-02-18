@@ -1,7 +1,5 @@
-import { Telegraf, session, Markup } from 'telegraf';
+import { Telegraf } from 'telegraf';
 import { stage as firstMeetScene } from './bot_scenes/firstMeet.js';
-import { clearMenu } from './menu/mainMenu.js';
-import { menu } from './utils/constants.js';
 import config from "../config/index.js";
 import commands from "./command/index.js";
 

@@ -10,6 +10,7 @@ const { Header, Content, Footer } = Layout;
 import './App.css';
 import Register from './pages/Register/Register';
 import EventFilters from './pages/EventFilters/EventFilters';
+import RoomFilters from './pages/RoomFilters/RoomFilters';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -24,12 +25,14 @@ const App: FC = () => {
             <>
               <p><Link to={"/login"}>Login</Link></p>
               <p><Link to={"/register"}>Register</Link></p>
-              <p><Link to={"/filters"}>Filters</Link></p>
+              <p><Link to={"/event-filters"}>Events</Link></p>
+              <p><Link to={"/rooms-filters"}>Rooms</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/filters" element={<EventFilters />} />
+          <Route path="/event-filters" element={<EventFilters />} />
+          <Route path="/rooms-filters" element={<RoomFilters />} />
         </Routes>
       </div>
     </Layout>

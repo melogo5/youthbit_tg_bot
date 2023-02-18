@@ -2,18 +2,18 @@ import { createEffect, createEvent, createStore, sample } from "effector";
 import { createForm } from "effector-react-form";
 import api from "../../scripts/api";
 
-export const $eventFilters = createStore({});
+export const $roomFilters = createStore({});
 
-export const eventFiltersForm = createForm();
+export const roomFiltersForm = createForm();
 
-export const eventFiltersFormSubmit = createEvent<any>();
+export const roomFiltersFormSubmit = createEvent<any>();
 
 const filtersFx = createEffect((values: any) => console.log(values));
 // const filtersFx = createEffect((values: any) => api("login", values));
 
 sample({
-    clock: eventFiltersFormSubmit,
-    source: eventFiltersForm.$values,
+    clock: roomFiltersFormSubmit,
+    source: roomFiltersForm.$values,
     fn: (source, clock) => source,
     target: filtersFx
 });

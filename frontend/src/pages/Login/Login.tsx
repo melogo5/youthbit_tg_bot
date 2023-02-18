@@ -19,6 +19,7 @@ const Login: FC = () => {
     return (
         <div className="page-login">
             <InputField controller={controller({ name: "login" })} label={"Login"} />
+            <InputField controller={controller({ name: "password" })} label={"Login"} />
 
             <Input.Password />
 

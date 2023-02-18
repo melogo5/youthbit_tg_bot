@@ -1,13 +1,5 @@
-import {
-  Telegraf,
-  Markup,
-  Composer,
-  Scenes
-} from 'telegraf';
-
-import {
-  getMainMenu
-} from "./mainMenu.js";
+import { Telegraf, Markup, Composer, Scenes } from 'telegraf';
+import { getMainMenu } from "../menu/mainMenu.js";
 
 const sceneStateContext = 'firstMeetData';
 
@@ -83,4 +75,4 @@ age.on('text', async (ctx) => {
 
 const meetScene = new Scenes.WizardScene('firstMeet', greetings, firstName, lastName, gender, age);
 
-export const stage = new Scenes.Stage([meetScene]);
+export const stage = new Scenes.Stage([ meetScene ]);

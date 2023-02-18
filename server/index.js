@@ -1,74 +1,41 @@
-Í// Require the framework and instantiate it
+import { Telegraf } from 'telegraf';
+import { stage as firstMeetScene } from './bot_scenes/firstMeet.js';
+import config from "../config/index.js";
+import commands from "./command/index.js";
 
-import pg from "pg";
-// ESM
-import Fastify from 'fastify';
-import pg_config from "./pg_config/config.js";
-import migrations from "./migrations/0.js";
+const bot = new Telegraf(config.telegram.bot.token);
+let authorized = true; //тут прикрутить лог ику проверки асторизованности пользователя
 
-const { Client } = pg;
+console.log(config);
 
-const fastify = Fastify({
-    logger: true
+bot.use(session());
+bot.use(firstMeetScene.middleware());
+
+commands.startCmd(bot, authorized);
+commands.helpCmd(bot);
+commands.loginCmd(bot, authorized);
+commands.profileCmd(bot, authorized);
+commands.tripCmd(bot, authorized);
+
+bot.on('callback_query', async (ctx) => {
+  // Explicit usage
+  await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
+
+  // Using context shortcut
+  await ctx.answerCbQuery();
 });
 
-const client = new Client({
-    user: pg_config.pg.user,
-    database: pg_config.pg.database,
-    password: pg_config.pg.password,
-    port: pg_config.pg.port,
-    host: pg_config.pg.host,
-})
+bot.on('inline_query', async (ctx) => {
+  const result = [];
+  // Explicit usage
+  await ctx.telegram.answerInlineQuery(ctx.inlineQuery.id, result);
 
-fastify.addHook("preHandler", async function (request, reply) {
-    reply.headers({
-        // "Cache-Control": "no-store",
-        // Pragma: "no-cache",
-        // "Access-Control-Allow-Credentials": true,
-        "Access-Control-Allow-Origin": "*", // "http://localhost:3000/",
-        "Content-Type": "application/json",
-        // "Access-Control-Allow-Methods": "*",
-        // "Access-Control-Allow-Headers": "*",
-    });
-    // next();
+  // Using context shortcut
+  await ctx.answerInlineQuery(result);
 });
 
-fastify.post('/api/login', async (request, reply) => {
-    // console.log(request.body)
-    // return request.body;
-    // await reply.send({
-    //     hello: 'world',
-    //     // request: request.body
-    // })
-    return {
-        "hello": "world"
-    }
-})
+bot.launch();
 
-fastify.get('/', async (request, reply) => {
-    return { hello: 'World' }
-  })
-
-// Run the server!
-const start = async () => {
-    try {
-        await client.connect(err => {
-            if (err) {
-                console.error('connection error', err.stack)
-            } else {
-                console.log('connected')
-            }
-        })
-    
-        await migrations(client);
-
-        await fastify.listen({
-            port: 8080,
-            host: "0.0.0.0"
-        })
-    } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
-    }
-}
-start()
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));

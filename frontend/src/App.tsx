@@ -24,7 +24,7 @@ const App: FC = () => {
     <Layout className="layout">
       <div className="App">
         <Header className="app-header" style={{display: 'block'/*location.pathname === "/login" || location.pathname === "/register" ? "none": ""*/}}>
-          <Button size='large' onClick={() => navigate(-1)}>Назад</Button>
+          <Button onClick={() => navigate(-1)}>Назад</Button>
         </Header>
         <Routes>
           <Route path="*" element={(

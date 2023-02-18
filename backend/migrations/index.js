@@ -1,7 +1,11 @@
 import { promises as fs } from "fs";
+import * as url from 'url';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 export default async function migrations(client) {
-    const files = await fs.readdir("./migrations");
+    const files = await fs.readdir(__dirname);
     const migrations = files.filter(f => f !== "index.js").map(f => parseInt(f.replace(/\.js$/, ""))).sort();
 
     console.log("все миграции", migrations);

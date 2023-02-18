@@ -51,7 +51,7 @@ const RoomFilters: FC = () => {
     return (
         <div className="page-wrap page-filters">
             <div className="section-wrap">
-                <Title>Варианты размещения.</Title>
+                <Title>Куда вы хотите поехать?</Title>
                 <SelectField controller={controller({ name: "eventType" })} label={"Федеральный округ"} options={typeOptions} />
                 <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
                 <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
@@ -61,7 +61,7 @@ const RoomFilters: FC = () => {
 
                 <div className="buttons-wrap">
                     <Button onClick={roomFiltersFormSubmit} type="primary" htmlType="submit">
-                        Показать совпадения
+                        Искать
                     </Button>
                     <Button>
                         Очистить фильтр

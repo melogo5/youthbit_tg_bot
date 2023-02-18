@@ -36,10 +36,10 @@ export default async function migration(client) {
         if (details) {
             const mainInfo = details['main-info']
             if (mainInfo) {
-                city = dorm['details']['main-info']['city'];
-                name = dorm['details']['main-info']['name'];
-                maxDays = dorm['details']['main-info']['maxDays'];
-                minDays = dorm['details']['main-info']['minDays'];
+                city = mainInfo['city'];
+                name = mainInfo['name'];
+                maxDays = mainInfo['maxDays'];
+                minDays = mainInfo['minDays'];
             }
         }
 
@@ -48,13 +48,11 @@ export default async function migration(client) {
         let roomsArrayString = '';
         if (rooms) {
             console.log(rooms)
-            for (const [key, value] of Object.entries(rooms)) {
-                const room = rooms[key];
-                console.log(key)
-                const type = rooms[key]['details']['type'];
-                const price = rooms[key]['details']['price'];
-                const descr = rooms[key]['details']['description'].replaceAll('"', '*').replaceAll('\n',' ');
-                const isFree = rooms[key]['details']['isFree'];
+            for (const [key, room] of Object.entries(rooms)) {
+                const type = room['details']['type'];
+                const price = room['details']['price'];
+                const descr = room['details']['description'].replaceAll('"', '*').replaceAll('\n',' ');
+                const isFree = room['details']['isFree'];
                 const roomsString = `{"${key}", "${type}", "${price}", "${descr}", "${isFree}"}`;
                 roomsArrayString += roomsString + ', ';
             }
@@ -65,6 +63,6 @@ export default async function migration(client) {
         await client.query(labQuery)
     }
     
-    // await client.query(`INSERT INTO public.migrations (id) VALUES ('1');`);
+    await client.query(`INSERT INTO public.migrations (id) VALUES ('1');`);
     console.log`migration 1 created`;
 }

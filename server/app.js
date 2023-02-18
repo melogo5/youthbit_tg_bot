@@ -1,6 +1,7 @@
 import {
   Telegraf,
-  session
+  session,
+  Markup
 } from 'telegraf';
 
 import {
@@ -16,7 +17,7 @@ import {
 
 const token = '5969288783:AAGsRdbhsqrgBkfv6GwAezpva1OJq3AnjcY';
 const bot = new Telegraf(token);
-let authorized = false; //тут прикрутить лог ику проверки асторизованности пользователя  
+let authorized = true; //тут прикрутить лог ику проверки асторизованности пользователя  
 
 bot.use(session());
 bot.use(firstMeetScene.middleware());
@@ -38,6 +39,40 @@ bot.hears(menu.login, async ctx => {
   if ( authorized) return;
   // возможно не сцена а прям полная авторизация через web apps
   await ctx.scene.enter('firstMeet');
+})
+
+bot.hears(menu.profile, async ctx => {
+  if (!authorized) {
+    ctx.reply("Вы не авторизованы");
+    return;
+  };
+  //вывести инфу и возможность заново заполнить
+
+})
+
+bot.hears(menu.trip, async ctx => {
+  if (!authorized) {
+    ctx.reply("Вы не авторизованы");
+    return;
+  };
+
+  //открыть пейджу с фильрами
+})
+
+// bot.hears(menu.pathEdit, async ctx => {
+//   if (!authorized) {
+//     ctx.reply("Вы не авторизованы");
+//     return;
+//   };
+// })
+
+bot.hears(menu.pathView, async ctx => {
+  if (!authorized) {
+    ctx.reply("Вы не авторизованы");
+    return;
+  };
+
+
 })
 
 bot.on('callback_query', async (ctx) => {

@@ -10,7 +10,8 @@ export function getMainMenu(authorized) {
 
     return Markup.keyboard([
         firstRow,
-        [menu.trip, menu.path]
+        [menu.trip, menu.pathEdit],
+        [menu.pathView]
     ]).resize()
 }
 

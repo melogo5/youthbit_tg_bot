@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 
 export default async function migration(client) {
+    // CREATE SEQUENCE dormitories_id_seq;
     const query = `
-    CREATE SEQUENCE dormitories_id_seq;
     CREATE TABLE dormitories (
       id INT NOT NULL DEFAULT NEXTVAL('dormitories_id_seq'),
       userId text,
@@ -21,7 +21,7 @@ export default async function migration(client) {
     );
 
   `;
-    await client.query(query);
+    // await client.query(query);
 
     const file = JSON.parse(await fs.readFile("./ros-data/dormitories.json", "utf8"));
     for (let i=0; i<file.length; i++) {
@@ -61,7 +61,7 @@ export default async function migration(client) {
             roomsArrayString = roomsArrayString.slice(0, -2)
         }
         const labQuery = `INSERT INTO dormitories(userId, universityId, city, name, maxDays, minDays, rooms) VALUES('${userId}', '${universityId}', '${city}', '${name}', '${maxDays}', '${minDays}', '{${roomsArrayString}}') returning (id)`
-        console.log(labQuery);
+        // console.log(labQuery);
         await client.query(labQuery)
     }
     

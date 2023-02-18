@@ -4,7 +4,7 @@ import { Typography } from "antd";
 
 const { Title, Text } = Typography;
 
-interface RoomCardProps {
+export interface RoomCardProps {
     details: {
         documents: Array<string>;
         "main-info": {

@@ -1,9 +1,14 @@
-import React from "react";
-import RoomCard from "../InfoCardsList/cards/RoomCard";
+import React, { useMemo } from "react";
+import { Button, Checkbox, Table, Typography } from 'antd';
 
-import InfoCardsList from "../InfoCardsList/InfoCardsList";
+import { RoomCardProps } from "../InfoCardsList/cards/RoomCard";
 
-export const item = {
+
+import "./RoomPage.css";
+
+const { Title } = Typography;
+
+const dormitoryItem = {
     "userId": "PtA4pFzxry",
     "universityId": "G5qYEw8lls",
     "createdTimestamp": 1648790889430,
@@ -80,16 +85,83 @@ export const item = {
     }
 };
 
-const RoomList: React.FC = () => {
-    //@ts-ignore
-     const cards = [item, item, item, item].map(e => <RoomCard {...e} key={e.id} />);
-     console.log(cards)
+const columns = [
+    {
+        title: 'Тип комнаты',
+        dataIndex: 'type',
+        key: 'type',
+    },
+    {
+        title: 'Количество',
+        dataIndex: 'amount',
+        key: 'amount',
+    },
+    {
+        title: 'Тариф (1 человек)',
+        key: 'rate',
+        dataIndex: 'rate'
+    },
+    {
+        title: 'Описание',
+        dataIndex: 'description',
+        key: 'description',
+    },
+];
+
+const RoomPage: React.FC<RoomCardProps> = props => {
+    const { rooms } = props;
+    const mainInfo = props.details["main-info"];
+
+    const tableData = useMemo(() => {
+        return Object.values(rooms).map((e, i) => ({
+            key: i,
+            type: e.details.type,
+            amount: e.details.amount,
+            rate: `от ${e.details.price} руб`,
+            description: e.details.description
+        }))
+    }, [rooms])
 
     return (
-        <div className="page-wrap">
-            <InfoCardsList cards={cards} />
+        <div className="">
+            <Title>{mainInfo.name}</Title>
+            <Button>Оставить заявку</Button>
+            <div className="">
+                <Button>Общая информация</Button>
+                <Button>Комнаты</Button>
+                <Button>Условия заселения</Button>
+                <Button>Документы</Button>
+            </div>
+            <div>
+                <Title level={2}>Общая информация</Title>
+                <img src={mainInfo.photos[0] || ''} alt="" />
+                Образовательная организация
+                {mainInfo.name}<br />
+                Город
+                {mainInfo.city}
+                Адрес
+                {`${mainInfo.street}, ${mainInfo.houseNumber}`}
+                Продолжительность пребывания
+                {`от ${mainInfo.minDays} до ${mainInfo.maxDays}`}
+
+            </div>
+            <div>
+                <Title level={2}>Комнаты</Title>
+                <Table pagination={false} columns={columns} dataSource={tableData} />
+            </div>
+            <div>
+                <Title level={2}>Контактные данные</Title>
+                <div>
+                    <Title level={3}>Контактные данные организационного комитета принимающей образовательной организации</Title>
+                    {dormitoryItem.details.rules.committee.name}<br />
+                    Телефон<br />
+                    {dormitoryItem.details.rules.committee.phone}<br />
+                    Электронная почта<br />
+                    {dormitoryItem.details.rules.committee.email}<br />
+                </div>
+            </div>
         </div>
     );
 }
 
-export default RoomList;
+export default RoomPage;

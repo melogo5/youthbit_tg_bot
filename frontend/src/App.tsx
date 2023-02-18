@@ -13,6 +13,9 @@ import EventFilters from './pages/EventFilters/EventFilters';
 import RoomFilters from './pages/RoomFilters/RoomFilters';
 import ScienceFilters from './pages/ScienceFilters/ScienceFilters';
 import RoomList from './pages/RoomList/RoomList';
+import RoomPage from './pages/RoomPage/RoomPage';
+
+import {item} from "./pages/RoomList/RoomList";
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -31,6 +34,7 @@ const App: FC = () => {
               <p><Link to={"/rooms-filters"}>Rooms</Link></p>
               <p><Link to={"/science-filters"}>Science</Link></p>
               <p><Link to={"/rooms"}>Rooms</Link></p>
+              <p><Link to={"/roomPage"}>Rooms page</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
@@ -39,6 +43,8 @@ const App: FC = () => {
           <Route path="/rooms-filters" element={<RoomFilters />} />
           <Route path="/science-filters" element={<ScienceFilters />} />
           <Route path="/rooms" element={<RoomList />} />
+            
+          <Route path="/roomPage" element={<RoomPage {...item as any} />} />
         </Routes>
       </div>
     </Layout>

@@ -18,19 +18,14 @@ const Login: FC = () => {
 
     return (
         <div className="page-login">
-            <InputField controller={controller({ name: "login" })} label={"Login"} />
-            <InputField controller={controller({ name: "password" })} label={"Login"} />
-
-            <Input.Password />
-
-            <Checkbox>Remember me</Checkbox>
+            <InputField controller={controller({ name: "login" })} label={"Электронная почта"} />
+            <InputField controller={controller({ name: "password" })} label={"Пароль"} />
 
             <Button onClick={loginFormSubmit} type="primary" htmlType="submit">
-                Submit
+                Войти
             </Button>
 
-
-            <pre>{JSON.stringify(user, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>
     );
 };

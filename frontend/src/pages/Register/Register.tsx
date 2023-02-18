@@ -26,7 +26,7 @@ const Register: FC = () => {
             <Checkbox>Remember me</Checkbox>
 
             <Button onClick={registerFormSubmit} type="primary" htmlType="submit">
-                Submit
+                Зарегестрироваться
             </Button>
 
 

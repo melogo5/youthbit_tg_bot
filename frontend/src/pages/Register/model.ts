@@ -8,7 +8,8 @@ export const registerForm = createForm();
 
 export const registerFormSubmit = createEvent<any>();
 
-const registerFx = createEffect((values: any) => api("register", values));
+// const registerFx = createEffect((values: any) => api("register", values));
+const registerFx = createEffect((values: any) => console.log(values));
 
 sample({
     clock: registerFormSubmit,
@@ -17,8 +18,8 @@ sample({
     target: registerFx
 });
 
-sample({
-    clock: registerFx.doneData,
-    // fn: data => data
-    target: $user
-});
+// sample({
+//     clock: registerFx.doneData,
+//     // fn: data => data
+//     target: $user
+// });

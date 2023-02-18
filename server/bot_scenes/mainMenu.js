@@ -9,6 +9,7 @@ export function getMainMenu(authorized) {
     }
 
     return Markup.keyboard([
+        [Markup.button.webApp('Открыть webApp', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')],
         firstRow,
         [menu.trip, menu.pathEdit],
         [menu.pathView]

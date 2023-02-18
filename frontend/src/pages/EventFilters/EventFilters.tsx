@@ -24,7 +24,7 @@ const EventFilters: FC = () => {
         { value: "", label: "Не указан" },
     ];
 
-    const orgOptions = [
+    const orgOptions = [// с бека
         { value: 1, label: "1" },
         { value: 2, label: "2" },
         { value: 3, label: "3" },
@@ -44,8 +44,11 @@ const EventFilters: FC = () => {
     ];
     //сделать запрос за опциями? или хардкод если будет мало времени
 
+    //?ко-во совпадений с бека присылать?
+
     return (
         <div className="page-filters">
+            Cовпадений: {13}
             {/* <InputField controller={controller({ name: "login" })} label={"Электронная почта"} /> */}
             {/* <InputField controller={controller({ name: "password" })} label={"Пароль"} /> */}
             <SelectField controller={controller({ name: "eventType" })} label={"Тип события"} options={typeOptions} />
@@ -54,7 +57,10 @@ const EventFilters: FC = () => {
             <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
 
             <Button onClick={filtersFormSubmit} type="primary" htmlType="submit">
-                Войти
+                Показать совпадения
+            </Button>
+            <Button>
+                Очистить фильтр
             </Button>
 
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}

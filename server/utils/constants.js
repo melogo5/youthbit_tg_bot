@@ -1,4 +1,4 @@
-const commands = `
+const commandsList = `
 /start - перезапустить бота
 /menu - меню основных возможностей
 /help - помощь
@@ -13,6 +13,6 @@ const menu = {
 }
 
 export {
-    commands,
+    commandsList,
     menu
 };

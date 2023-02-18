@@ -25,7 +25,7 @@ export default async function migration(client) {
         password boolean
     );
     `
-
+    
     await client.query(query);
     await client.query(`INSERT INTO public.migrations (id) VALUES ('0');`);
     console.log`migration 0 created`;

@@ -16,6 +16,7 @@ import RoomList from './pages/RoomList/RoomList';
 import RoomPage from './pages/RoomPage/RoomPage';
 
 import {item} from "./pages/RoomList/RoomList";
+import RoomBooking from './pages/RoomBooking/RoomBooking';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const App: FC = () => {
               <p><Link to={"/science-filters"}>Science</Link></p>
               <p><Link to={"/rooms"}>Rooms</Link></p>
               <p><Link to={"/roomPage"}>Rooms page</Link></p>
+              <p><Link to={"/room-booking"}>Room booking</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
@@ -45,6 +47,7 @@ const App: FC = () => {
           <Route path="/rooms" element={<RoomList />} />
             
           <Route path="/roomPage" element={<RoomPage {...item as any} />} />
+          <Route path="/room-booking" element={<RoomBooking />} />
         </Routes>
       </div>
     </Layout>

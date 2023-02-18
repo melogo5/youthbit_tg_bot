@@ -36,14 +36,14 @@ const RoomBooking: React.FC = () => {
             <Radio.Group options={optionsWithDisabled} value='student' />
 
             <InputField controller={controller({ name: "fullName" })} label={"ФИО"} />
-            <div>
+            {/* <div>
                 <Title level={4}>Контакты для обратной связи</Title>
                 <InputField controller={controller({ name: "phone" })} label={"Контактный телефон"} />
                 <InputField controller={controller({ name: "emain" })} label={"Электронная почта"} />
                 <InputField controller={controller({ name: "additionalInfo" })} label={"Дополнительная информация"} />
                 <TextAreaField controller={controller({ name: "studentsList" })} label={"Cписок обучающихся"} />
                 <DocsUploadField controller={controller({ name: "docs" })} label={"Файлы"} />
-            </div>
+            </div> */}
 
             <Button onClick={roomBookingFormSubmit} type="primary" htmlType="submit">
                 Создать заявку

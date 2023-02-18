@@ -9,6 +9,9 @@ const { Header, Content, Footer } = Layout;
 
 import './App.css';
 import Register from './pages/Register/Register';
+import EventFilters from './pages/EventFilters/EventFilters';
+import RoomFilters from './pages/RoomFilters/RoomFilters';
+import ScienceFilters from './pages/ScienceFilters/ScienceFilters';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -23,10 +26,16 @@ const App: FC = () => {
             <>
               <p><Link to={"/login"}>Login</Link></p>
               <p><Link to={"/register"}>Register</Link></p>
+              <p><Link to={"/event-filters"}>Events</Link></p>
+              <p><Link to={"/rooms-filters"}>Rooms</Link></p>
+              <p><Link to={"/science-filters"}>Science</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/event-filters" element={<EventFilters />} />
+          <Route path="/rooms-filters" element={<RoomFilters />} />
+          <Route path="/science-filters" element={<ScienceFilters />} />
         </Routes>
       </div>
     </Layout>

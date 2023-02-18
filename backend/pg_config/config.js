@@ -1,8 +1,8 @@
 export default {
     pg: {
         user: "postgres",
-        database: "", // database name 
-        password: "",
+        database: "rostur", // database name 
+        password: "123lambda",
         port: "",
         host: "localhost",
     }

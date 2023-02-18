@@ -3,10 +3,14 @@
 import pg from "pg";
 // ESM
 import Fastify from 'fastify';
+import { promises as fs } from "fs";
+
 import pg_config from "./pg_config/config.js";
 import migrations from "./migrations/index.js";
 
-const { Client } = pg;
+const {
+    Client
+} = pg;
 
 const fastify = Fastify({
     logger: true
@@ -46,8 +50,60 @@ fastify.post('/api/login', async (request, reply) => {
 })
 
 fastify.get('/', async (request, reply) => {
-    return { hello: 'World' }
-  })
+    return {
+        hello: 'World'
+    }
+})
+
+//возвращает список вузов
+fastify.get('/api/universities', async (request, reply) => {
+    const file = await fs.readFile("./ros-data/universities.json");
+    const data = await JSON.parse(file);
+    // console.log(data)
+    return {
+        data
+    }
+})
+
+//возвращает список общаг
+fastify.get('/api/dormitories', async (request, reply) => {
+    const file = await fs.readFile("./ros-data/dormitories.json");
+    const data = await JSON.parse(file);
+    // console.log(data)
+    return {
+        data
+    }
+})
+
+
+//возвращает список комнат
+fastify.get('/api/rooms', async (request, reply) => {
+    const file = await fs.readFile("./ros-data/rooms.json");
+    const data = await JSON.parse(file);
+    // console.log(data)
+    return {
+        data
+    }
+})
+
+//возвращает список событий
+fastify.get('/api/events', async (request, reply) => {
+    const file = await fs.readFile("./ros-data/events.json");
+    const data = await JSON.parse(file);
+    // console.log(data)
+    return {
+        data
+    }
+})
+//возвращает список лабораторий
+fastify.get('/api/labs', async (request, reply) => {
+    const file = await fs.readFile("./ros-data/labs.json");
+    const data = await JSON.parse(file);
+    // console.log(data)
+    return {
+        data
+    }
+})
 
 // Run the server!
 const start = async () => {
@@ -59,7 +115,7 @@ const start = async () => {
                 console.log('connected')
             }
         })
-    
+
         await migrations(client);
 
         await fastify.listen({

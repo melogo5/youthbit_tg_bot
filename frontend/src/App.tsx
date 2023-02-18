@@ -12,6 +12,11 @@ import Register from './pages/Register/Register';
 import EventFilters from './pages/EventFilters/EventFilters';
 import RoomFilters from './pages/RoomFilters/RoomFilters';
 import ScienceFilters from './pages/ScienceFilters/ScienceFilters';
+import RoomList from './pages/RoomList/RoomList';
+import RoomPage from './pages/RoomPage/RoomPage';
+
+import {item} from "./pages/RoomList/RoomList";
+import RoomBooking from './pages/RoomBooking/RoomBooking';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -29,6 +34,9 @@ const App: FC = () => {
               <p><Link to={"/event-filters"}>Events</Link></p>
               <p><Link to={"/rooms-filters"}>Rooms</Link></p>
               <p><Link to={"/science-filters"}>Science</Link></p>
+              <p><Link to={"/rooms"}>Rooms</Link></p>
+              <p><Link to={"/roomPage"}>Rooms page</Link></p>
+              <p><Link to={"/room-booking"}>Room booking</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
@@ -36,6 +44,10 @@ const App: FC = () => {
           <Route path="/event-filters" element={<EventFilters />} />
           <Route path="/rooms-filters" element={<RoomFilters />} />
           <Route path="/science-filters" element={<ScienceFilters />} />
+          <Route path="/rooms" element={<RoomList />} />
+            
+          <Route path="/roomPage" element={<RoomPage {...item as any} />} />
+          <Route path="/room-booking" element={<RoomBooking />} />
         </Routes>
       </div>
     </Layout>

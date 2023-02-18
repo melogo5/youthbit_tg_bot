@@ -19,15 +19,17 @@ const Login: FC = () => {
     useEffect(() => console.log({ user }), [user]);
 
     return (
-        <div className="page-login">
-            <Title>Регистрация</Title>
+        <div className="page-wrap page-login">
+            <div className="section-wrap">
+                <Title>Авторизация</Title>
 
-            <InputField controller={controller({ name: "login" })} label={"Электронная почта"} />
-            <InputField controller={controller({ name: "password" })} label={"Пароль"} />
+                <InputField controller={controller({ name: "login" })} label={"Электронная почта"} />
+                <InputField controller={controller({ name: "password" })} label={"Пароль"} />
 
-            <Button onClick={loginFormSubmit} type="primary" htmlType="submit">
-                Войти
-            </Button>
+                <Button onClick={loginFormSubmit} type="primary" htmlType="submit">
+                    Войти
+                </Button>
+            </div>
 
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>

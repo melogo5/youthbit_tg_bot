@@ -26,19 +26,20 @@ const Register: FC = () => {
     ]
 
     return (
-        <div className="page-register">
-            <Title>Регистрация</Title>
-            
-            <InputField controller={controller({ name: "fullName" })} label={"ФИО"} />
-            <SelectField controller={controller({ name: "role" })} label={"Роль"} options={roleOptions} />
-            <InputField controller={controller({ name: "phone" })} label={"Номер телефона"} />
-            <InputField controller={controller({ name: "email" })} label={"Электронная почта"} />
-            <InputField controller={controller({ name: "password" })} label={"Пароль"} />
+        <div className="page-wrap page-register">
+            <div className="section-wrap">
+                <Title>Регистрация</Title>
+                
+                <InputField controller={controller({ name: "fullName" })} label={"ФИО"} />
+                <SelectField controller={controller({ name: "role" })} label={"Роль"} options={roleOptions} />
+                <InputField controller={controller({ name: "phone" })} label={"Номер телефона"} />
+                <InputField controller={controller({ name: "email" })} label={"Электронная почта"} />
+                <InputField controller={controller({ name: "password" })} label={"Пароль"} />
 
-            <Button onClick={registerFormSubmit} type="primary" htmlType="submit">
-                Зарегестрироваться
-            </Button>
-
+                <Button onClick={registerFormSubmit} type="primary" htmlType="submit">
+                    Зарегестрироваться
+                </Button>
+            </div>
 
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>

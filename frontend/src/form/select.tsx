@@ -13,7 +13,7 @@ export const SelectField: React.FC<InputProps> = ({ controller, label, options }
     const { input } = controller();
   
     return (
-      <div className="input-wrap">
+      <div className="input-wrap input-wrap_select">
         <label>{label}</label>
         <Select {...input} value={input.value || ''} options={options || []} className="input" />
       </div>

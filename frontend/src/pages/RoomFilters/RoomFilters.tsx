@@ -49,22 +49,30 @@ const RoomFilters: FC = () => {
     //?ко-во совпадений с бека присылать?
 
     return (
-        <div className="page-filters">
-            <Title>Варианты размещения.</Title>
-            Cовпадений: {13}
-            <SelectField controller={controller({ name: "eventType" })} label={"Федеральный округ"} options={typeOptions} />
-            <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
-            <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
-            <SelectField controller={controller({ name: "educationalOrganization" })} label={"Образовательная организация"} options={orgOptions} />
-            <SelectField controller={controller({ name: "educationalOrganization" })} label={"Тип размещения"} options={orgOptions} />
-            <SelectField controller={controller({ name: "educationalOrganization" })} label={"Питание"} options={orgOptions} />
+        <div className="page-wrap page-filters">
+            <div className="section-wrap">
+                <Title>Варианты размещения.</Title>
+                <SelectField controller={controller({ name: "eventType" })} label={"Федеральный округ"} options={typeOptions} />
+                <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
+                <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
+                <SelectField controller={controller({ name: "educationalOrganization" })} label={"Образовательная организация"} options={orgOptions} />
+                <SelectField controller={controller({ name: "educationalOrganization" })} label={"Тип размещения"} options={orgOptions} />
+                <SelectField controller={controller({ name: "educationalOrganization" })} label={"Питание"} options={orgOptions} />
 
-            <Button onClick={roomFiltersFormSubmit} type="primary" htmlType="submit">
-                Показать совпадения
-            </Button>
-            <Button>
-                Очистить фильтр
-            </Button>
+                <Button onClick={roomFiltersFormSubmit} type="primary" htmlType="submit">
+                    Показать совпадения
+                </Button>
+                <Button>
+                    Очистить фильтр
+                </Button>
+            </div>
+            <div className="section-wrap">
+                <div className="info-wrap">
+                    <p className="text_info">
+                        Cовпадений: <b>{13}</b>
+                    </p>
+                </div>
+            </div>
 
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>

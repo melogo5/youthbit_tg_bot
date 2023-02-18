@@ -13,8 +13,10 @@ export const InputField: React.FC<InputProps> = ({ controller, label }) => {
   
     return (
       <div className="input-wrap">
-        <label>{label}</label>
-        <Input {...input} value={input.value || ''} className="input" />
+        <label>
+          <span>{label}</span>
+          <Input {...input} value={input.value || ''} className="input" />
+        </label>
       </div>
     );
   };

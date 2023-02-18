@@ -49,22 +49,30 @@ const EventFilters: FC = () => {
     //?ко-во совпадений с бека присылать?
 
     return (
-        <div className="page-filters">
-            <Title>События</Title>
-            Cовпадений: {13}
-            {/* <InputField controller={controller({ name: "login" })} label={"Электронная почта"} /> */}
-            {/* <InputField controller={controller({ name: "password" })} label={"Пароль"} /> */}
-            <SelectField controller={controller({ name: "eventType" })} label={"Тип события"} options={typeOptions} />
-            <SelectField controller={controller({ name: "educationalOrganization" })} label={"Образовательная организация"} options={orgOptions} />
-            <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
-            <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
+        <div className="page-wrap page-filters">
+            <div className="section-wrap">
+                <Title>События</Title>
+                {/* <InputField controller={controller({ name: "login" })} label={"Электронная почта"} /> */}
+                {/* <InputField controller={controller({ name: "password" })} label={"Пароль"} /> */}
+                <SelectField controller={controller({ name: "eventType" })} label={"Тип события"} options={typeOptions} />
+                <SelectField controller={controller({ name: "educationalOrganization" })} label={"Образовательная организация"} options={orgOptions} />
+                <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
+                <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
 
-            <Button onClick={eventFiltersFormSubmit} type="primary" htmlType="submit">
-                Показать совпадения
-            </Button>
-            <Button>
-                Очистить фильтр
-            </Button>
+                <Button onClick={eventFiltersFormSubmit} type="primary" htmlType="submit">
+                    Показать совпадения
+                </Button>
+                <Button>
+                    Очистить фильтр
+                </Button>
+            </div>
+            <div className="section-wrap">
+                <div className="info-wrap">
+                    <p className="text_info">
+                        Cовпадений: <b>{13}</b>
+                    </p>
+                </div>
+            </div>
 
             {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>

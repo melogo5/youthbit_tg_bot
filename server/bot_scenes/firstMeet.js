@@ -5,6 +5,10 @@ import {
   Scenes
 } from 'telegraf';
 
+import {
+  getMainMenu
+} from "./mainMenu.js";
+
 const sceneStateContext = 'firstMeetData';
 
 const updateState = (ctx, object, sceneCtx = sceneStateContext) => {
@@ -17,8 +21,8 @@ const updateState = (ctx, object, sceneCtx = sceneStateContext) => {
 const greetings = new Composer();
 greetings.on('text', async (ctx) => {
   ctx.wizard.state[sceneStateContext] = {};
-  await ctx.reply(`Привет, ${ctx.message.from.first_name} !`);
-  await ctx.reply(`Давай знакомиться.`);
+  // await ctx.reply(`Привет, ${ctx.message.from.first_name} !`);
+  // await ctx.reply(`Давай знакомиться.`);
   await ctx.reply(`Как твоё имя?`);
   return ctx.wizard.next();
 });
@@ -73,6 +77,7 @@ age.on('text', async (ctx) => {
   });
   await ctx.reply('Спасибо!');
   console.log(ctx.wizard.state[sceneStateContext]);
+  await ctx.reply('Авторизация завершена', getMainMenu(true));
   return ctx.scene.leave();
 });
 

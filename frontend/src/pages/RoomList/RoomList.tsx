@@ -86,9 +86,9 @@ const RoomList: React.FC = () => {
      console.log(cards)
 
     return (
-        <>
+        <div className="page-wrap">
             <InfoCardsList cards={cards} />
-        </>
+        </div>
     );
 }
 

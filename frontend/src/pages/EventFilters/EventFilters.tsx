@@ -58,13 +58,15 @@ const EventFilters: FC = () => {
                 <SelectField controller={controller({ name: "educationalOrganization" })} label={"Образовательная организация"} options={orgOptions} />
                 <SelectField controller={controller({ name: "rusSubject" })} label={"Субъект РФ"} options={subjectsOptions} />
                 <SelectField controller={controller({ name: "location" })} label={"Населенный пункт"} options={locationOptons} />
-
-                <Button onClick={eventFiltersFormSubmit} type="primary" htmlType="submit">
-                    Показать совпадения
-                </Button>
-                <Button>
-                    Очистить фильтр
-                </Button>
+                
+                <div className="buttons-wrap">
+                    <Button onClick={eventFiltersFormSubmit} type="primary" htmlType="submit">
+                        Показать совпадения
+                    </Button>
+                    <Button>
+                        Очистить фильтр
+                    </Button>
+                </div>
             </div>
             <div className="section-wrap">
                 <div className="info-wrap">

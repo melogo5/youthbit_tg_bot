@@ -11,9 +11,9 @@ const InfoCardsList: React.FC<InfoCardsListProps> = (props) => {
 
 
     return (
-        <div className="cards-list"> 
+        <ul className="cards-list"> 
             {cards}
-        </ div>
+        </ul>
     );
 }
 

@@ -50,15 +50,19 @@ const RoomCard: React.FC<RoomCardProps> = (props) => {
 
 
     return (
-        <div>
-            <img src={mainInfo.photos[0] || ''} alt="" />
-            <Title>{mainInfo.name}</Title>
-            <Text>Вариантов размещения: {Object.values(rooms).length}</Text>
-            <br/>
-            <Text>Стоимость на 1 человека: {`от ${minCost} руб.`}</Text>
-            <br/>
-            <Text>{`Продолжительность пребывания от ${mainInfo.minDays} до ${mainInfo.maxDays}`}</Text>
-        </div>
+        <li>
+            <a href="">
+                <article className="section-wrap card">
+                    <img src={mainInfo.photos[0] || ''} alt="" />
+                    <Title level={4}>{mainInfo.name}</Title>
+                    <Text>Вариантов размещения: <b>{Object.values(rooms).length}</b></Text>
+                    <br/>
+                    <Text>Стоимость на 1 человека: <b>{`от ${minCost} руб.`}</b></Text>
+                    <br/>
+                    <Text>Продолжительность пребывания: <b>от {`${mainInfo.minDays} до ${mainInfo.maxDays}`}</b></Text>
+                </article>
+            </a>
+        </li>
     );
 }
 

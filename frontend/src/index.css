@@ -4,6 +4,10 @@
   border: 0;
 }
 
+ol, ul {
+	list-style: none;
+}
+
 p {
   margin-bottom: 0 !important;
 }
@@ -16,8 +20,10 @@ p {
   display: block !important;
 }
 
-.ant-btn + .ant-btn {
-  margin-left: 8px;
+.buttons-wrap {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 8px;
 }
 
 .input-wrap {
@@ -47,6 +53,28 @@ p {
   border-radius: 12px;
 }
 
+.section-wrap .ant-typography b {
+  white-space: nowrap;
+}
+
 .text_info {
   font-size: 20px
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.card:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+}
+
+.card img {
+  margin-bottom: 16px;
+}
+
+.card h1 {
+  margin-bottom: 16px;
 }

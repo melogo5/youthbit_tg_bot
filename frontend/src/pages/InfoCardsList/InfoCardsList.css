@@ -1,7 +1,4 @@
 .cards-list {
-
-}
-
-.cards-list-item {
-    
+  display: grid;
+  gap: 8px;
 }

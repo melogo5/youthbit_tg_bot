@@ -59,12 +59,14 @@ const RoomFilters: FC = () => {
                 <SelectField controller={controller({ name: "educationalOrganization" })} label={"Тип размещения"} options={orgOptions} />
                 <SelectField controller={controller({ name: "educationalOrganization" })} label={"Питание"} options={orgOptions} />
 
-                <Button onClick={roomFiltersFormSubmit} type="primary" htmlType="submit">
-                    Показать совпадения
-                </Button>
-                <Button>
-                    Очистить фильтр
-                </Button>
+                <div className="buttons-wrap">
+                    <Button onClick={roomFiltersFormSubmit} type="primary" htmlType="submit">
+                        Показать совпадения
+                    </Button>
+                    <Button>
+                        Очистить фильтр
+                    </Button>
+                </div>
             </div>
             <div className="section-wrap">
                 <div className="info-wrap">

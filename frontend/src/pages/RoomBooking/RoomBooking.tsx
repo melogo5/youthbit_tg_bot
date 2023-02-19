@@ -26,29 +26,33 @@ const RoomBooking: React.FC = () => {
     ];
 
     return (
-        <div>
-            <Title>Заявка на бронирование</Title>
-            <SelectField controller={controller({ name: "roomType" })} label={"Тип размещения"} options={roomTypeOptions} />
-            <InputField controller={controller({ name: "roomCount" })} label={"Количество мест"} />
-            <DatePickerField controller={controller({ name: "dates" })} label={"Период проживания"} />
-            <TextAreaField controller={controller({ name: "comment" })} label={"Комментарий"} />
+        <div className="page-wrap">
+            <div className="section-wrap">
+                <Title level={2}>Заявка на бронирование</Title>
+                <SelectField controller={controller({ name: "roomType" })} label={"Тип размещения"} options={roomTypeOptions} />
+                <InputField controller={controller({ name: "roomCount" })} label={"Количество мест"} />
+                <DatePickerField controller={controller({ name: "dates" })} label={"Период проживания"} />
+                <TextAreaField controller={controller({ name: "comment" })} label={"Комментарий"} />
 
-            <Radio.Group options={optionsWithDisabled} value='student' />
+                <Radio.Group options={optionsWithDisabled} value='student' />
 
-            <InputField controller={controller({ name: "fullName" })} label={"ФИО"} />
-            {/* <div>
-                <Title level={4}>Контакты для обратной связи</Title>
-                <InputField controller={controller({ name: "phone" })} label={"Контактный телефон"} />
-                <InputField controller={controller({ name: "emain" })} label={"Электронная почта"} />
-                <InputField controller={controller({ name: "additionalInfo" })} label={"Дополнительная информация"} />
-                <TextAreaField controller={controller({ name: "studentsList" })} label={"Cписок обучающихся"} />
-                <DocsUploadField controller={controller({ name: "docs" })} label={"Файлы"} />
-            </div> */}
+                <InputField controller={controller({ name: "fullName" })} label={"ФИО"} />
+                {/* <div>
+                    <Title level={4}>Контакты для обратной связи</Title>
+                    <InputField controller={controller({ name: "phone" })} label={"Контактный телефон"} />
+                    <InputField controller={controller({ name: "emain" })} label={"Электронная почта"} />
+                    <InputField controller={controller({ name: "additionalInfo" })} label={"Дополнительная информация"} />
+                    <TextAreaField controller={controller({ name: "studentsList" })} label={"Cписок обучающихся"} />
+                    <DocsUploadField controller={controller({ name: "docs" })} label={"Файлы"} />
+                </div> */}
 
-            <Button onClick={roomBookingFormSubmit} type="primary" htmlType="submit">
-                Создать заявку
-            </Button>
-            <Button>Отменить</Button>
+                <div className="buttons-wrap">
+                    <Button onClick={roomBookingFormSubmit} type="primary" htmlType="submit">
+                        Создать заявку
+                    </Button>
+                    <Button>Отменить</Button>
+                </div>
+            </div>
         </div>
     );
 }

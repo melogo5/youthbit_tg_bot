@@ -72,8 +72,9 @@ img {
   gap: 8px;
 }
 
+.ant-radio-group,
 .input-wrap {
-  margin-bottom: 16px;
+  margin-bottom: 16px !important;
 }
 
 .input-wrap label > span {

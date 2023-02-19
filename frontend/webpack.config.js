@@ -20,6 +20,7 @@ export default {
     },
     compress: true,
     port: config.frontend.port,
+    allowedHosts: "all"
   },
   target: "web",
   output: {

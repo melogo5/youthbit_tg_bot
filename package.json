@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-backend": "node ./backend/index.js",
-    "start-frontend": "cd frontend && webpack-dev-server --https",
+    "start-frontend": "cd frontend && webpack-dev-server",
     "start-bot": "node ./bot/index.js",
     "dev-bot": "nodemon ./bot/index.js",
     "start-x": "react-scripts start",

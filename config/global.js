@@ -12,12 +12,12 @@ const config = {
       token: '5969288783:AAGsRdbhsqrgBkfv6GwAezpva1OJq3AnjcY',
     },
     webapp: {
-      host: "94.41.17.5", // адрес итд с прода
-      port: "8443"
+      // url: "https://94.41.17.5:8443", // адрес итд с прода
+      url: "https://08cb-94-41-17-5.ngrok.io"
     }
   },
   frontend: {
-    port: 8443
+    port: 8080
   }
 }
 

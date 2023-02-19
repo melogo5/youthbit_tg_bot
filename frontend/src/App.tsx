@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 import './App.css';
 import { Button, Layout } from 'antd';
@@ -45,10 +45,16 @@ const App: FC = () => {
           <Route path="/rooms-filters" element={<RoomFilters />} />
           <Route path="/science-filters" element={<ScienceFilters />} />
           <Route path="/rooms" element={<RoomList />} />
-            
+
           <Route path="/roomPage" element={<RoomPage {...item as any} />} />
           <Route path="/room-booking" element={<RoomBooking />} />
         </Routes>
+
+        <div style={{ color: "red", fontSize: "32px" }}>
+          прямые УРЛЫ страниц содержат символ решеточки (нужно для HashRouter)
+          <br />
+          Пример: <b>http://localhost:8080/#/login</b>
+        </div>
       </div>
     </Layout>
   );

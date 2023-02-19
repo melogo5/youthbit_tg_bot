@@ -10,9 +10,8 @@ const commandsList = `
 const menuItems = {
     login: 'Авториз1ация',
     profile: 'Мой профиль',
-    trip: 'Спланировать путешествие',
-    pathEdit: 'Редактировать путешествие',
-    pathView: 'Смотреть мой маршрут'
+    travel: 'Путешествовать',
+    requests: 'Мои поездки'
 }
 
 const userInfoBase = {
@@ -40,7 +39,7 @@ const parseContext = (ctx) => {
   };
 }
 
-const webApp = `https://${config.telegram.webapp.host}:${config.telegram.webapp.port}`;
+const webApp = config.telegram.webapp.url + "/#";
 
 export {
     commandsList,

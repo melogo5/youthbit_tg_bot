@@ -17,7 +17,7 @@ const config = {
     }
   },
   frontend: {
-    port: 80
+    port: 8080
   }
 }
 

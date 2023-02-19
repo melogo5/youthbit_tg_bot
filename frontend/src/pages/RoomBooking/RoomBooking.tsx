@@ -16,7 +16,11 @@ const RoomBooking: React.FC = () => {
     const { controller, handleSubmit } = useForm({ form: roomBookingForm });
 
     const roomTypeOptions = [
-        { value: "roomId", label: "Комната из запроса" },
+        { value: 1, label: "1-но местный номер" },
+        { value: 2, label: "2-х местная квартира" },
+        { value: 3, label: "2-х местный номер" },
+        { value: 4, label: "4-х местная квартира" },
+        { value: 5, label: "4-х местный номер" },
         { value: "", label: "" },
     ];
 
@@ -47,7 +51,7 @@ const RoomBooking: React.FC = () => {
                 </div> */}
 
                 <div className="buttons-wrap">
-                    <Button onClick={roomBookingFormSubmit} type="primary" htmlType="submit">
+                    <Button onClick={() => {location.href = "/#/all-done"}} type="primary" htmlType="submit">
                         Создать заявку
                     </Button>
                     <Button>Отменить</Button>

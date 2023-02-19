@@ -8,7 +8,7 @@ export const loginForm = createForm();
 
 export const loginFormSubmit = createEvent<any>();
 
-const loginFx = createEffect((values: any) => api("login", values));
+const loginFx = createEffect((values: any) => location.hash = "/rooms-filters");
 
 sample({
     clock: loginFormSubmit,

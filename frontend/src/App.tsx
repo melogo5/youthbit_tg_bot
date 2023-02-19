@@ -34,6 +34,7 @@ const App: FC = () => {
               <p><Link to={"/rooms"}>Rooms</Link></p>
               <p><Link to={"/roomPage"}>Rooms page</Link></p>
               <p><Link to={"/room-booking"}>Room booking</Link></p>
+              <p><Link to={"/all-done"}>DONE</Link></p>
             </>
           )} />
           <Route path="/login" element={<Login />} />
@@ -45,13 +46,14 @@ const App: FC = () => {
 
           <Route path="/roomPage" element={<RoomPage {...item as any} />} />
           <Route path="/room-booking" element={<RoomBooking />} />
+          <Route path="/all-done" element={<h1>Заявка создана</h1>} />
         </Routes>
 
-        <div style={{ color: "red", fontSize: "32px" }}>
+        {/* <div style={{ color: "red", fontSize: "32px" }}>
           прямые УРЛЫ страниц содержат символ решеточки (нужно для HashRouter)
           <br />
           Пример: <b>http://localhost:8080/#/login</b>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

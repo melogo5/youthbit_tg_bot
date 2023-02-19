@@ -126,7 +126,7 @@ const RoomPage: React.FC<RoomCardProps> = props => {
         <div className="page-wrap">
             <div className="section-wrap">
                 <Title level={3}>{mainInfo.name}</Title>
-                <Button type="primary" size="large">Оставить заявку</Button>
+                <Button type="primary" size="large" onClick={() => {location.href = "/#room-booking"}}>Оставить заявку</Button>
             </div>
             <div className="section-wrap">
                 <Title level={5}>Контент</Title>

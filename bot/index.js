@@ -15,7 +15,7 @@ commands.startCmd(bot, authorized);
 commands.helpCmd(bot);
 commands.loginCmd(bot, authorized);
 commands.profileCmd(bot, authorized);
-commands.tripCmd(bot, authorized);
+// commands.tripCmd(bot, authorized);
 
 bot.on('callback_query', async (ctx) => {
   // Explicit usage

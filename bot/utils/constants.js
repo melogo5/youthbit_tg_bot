@@ -8,7 +8,7 @@ const commandsList = `
 `;
 
 const menuItems = {
-    login: 'Авториз1ация',
+    login: 'Авторизация',
     profile: 'Мой профиль',
     travel: 'Путешествовать',
     requests: 'Мои поездки'

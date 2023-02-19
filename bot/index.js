@@ -1,15 +1,15 @@
-import { Telegraf } from 'telegraf';
-import { stage as firstMeetScene } from './bot_scenes/firstMeet.js';
+import { Telegraf, session } from 'telegraf';
+import { stage as firstMeetScene } from './scene/firstMeet.js';
 import config from "../config/index.js";
 import commands from "./command/index.js";
 
 const bot = new Telegraf(config.telegram.bot.token);
-let authorized = true; //тут прикрутить лог ику проверки асторизованности пользователя
+let authorized = true; //тут прикрутить логику проверки асторизованности пользователя
 
 console.log(config);
 
-bot.use(session());
-bot.use(firstMeetScene.middleware());
+// bot.use(session());
+// bot.use(firstMeetScene.middleware());
 
 commands.startCmd(bot, authorized);
 commands.helpCmd(bot);

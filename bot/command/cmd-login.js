@@ -1,6 +1,6 @@
 import { Telegraf } from 'telegraf';
 import { clearMenu, getMainMenu } from '../menu/mainMenu.js';
-import { menu } from '../utils/constants.js';
+import { menuItems } from '../utils/constants.js';
 
 /**
  * @param bot {Telegraf} телеграм бот
@@ -9,7 +9,7 @@ import { menu } from '../utils/constants.js';
  */
 const command = (bot, authorized) => {
 
-  bot.hears(menu.login, async ctx => {
+  bot.hears(menuItems.login, async ctx => {
     await ctx.reply(`${authorized ? "Вы уже авторизованы!": "Начнем авторизацию"}`, clearMenu());
     if ( authorized) return;
     // возможно не сцена а прям полная авторизация через web apps

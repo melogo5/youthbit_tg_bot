@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import path from "path";
 import webpack from "webpack";
+import config from '../config/index.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -13,7 +14,12 @@ export default {
   mode: isDevelopment ? "development" : "production",
   entry: "./src/index.tsx",
   devServer: {
-    hot: true,
+    // hot: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: config.frontend.port,
   },
   target: "web",
   output: {

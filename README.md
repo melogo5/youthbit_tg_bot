@@ -1,26 +1,39 @@
 # youthbit_tg_bot
 
-##backend (work in progress)
+## Установка и настройка
+нужен postgreSQL и nodeJS (18+)
 
-нужен postgreSQL и nodeJS
-заходим в директорию
-<cd ./backend>
-`<npm i> `
-`<npm start>`
+в постгрессе поднять пустую БД, назвать ее как-нибудь, например `youthbit`
 
-##frontend (work in progress)
-Нужна nodeJS
+> Конфиг можно подправить под себя в `config/local.js`
 
-<cd ./frontend>
-`<npm i> `
-`<npm run start>`
-или если старая версия nodejs
-`<npm run start-node> `
+## Запуск
+```shell
+$ npm install
+```
 
+---
 
-##Бот
-Нужна nodeJS 
+> далее потребуется 3 вкладки терминала
 
-`<cd ./server>`
-`<npm run start-bot>
-`
+### старт бека
+```shell
+$ npm run start-backend
+```
+
+### старт фронта для веб-аппы
+
+```shell
+$ npm run start-frontend
+```
+
+### старт ТГ бота
+```shell
+$ npm run start-bot
+```
+
+#### Примечание
+возможно стоит почитать этот раздел
+https://core.telegram.org/bots/webapps#testing-web-apps
+
+P.S. может понадобиться купить премиум телеги

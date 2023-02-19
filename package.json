@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-backend": "node backend/index.js",
-    "start-frontend": "cd ./frontend && webpack serve --hot --open",
-    "start-bot": "node server/index.js",
-    "dev-bot": "nodemon server/index.js",
-
+    "start-backend": "node ./backend/index.js",
+    "start-frontend": "cd frontend && webpack-dev-server --https",
+    "start-bot": "node ./bot/index.js",
+    "dev-bot": "nodemon ./bot/index.js",
     "start-x": "react-scripts start",
-    "start-node": "react-scripts --openssl-legacy-provider start",
+    "start-frontend-legacy": "cd ./frontend && webpack serve --openssl-legacy-provider --hot --open",
     "build-x": "react-scripts build",
     "test-x": "react-scripts test",
     "eject-x": "react-scripts eject",

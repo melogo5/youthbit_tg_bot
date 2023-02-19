@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 export default async function migration(client) {
-    // CREATE SEQUENCE universities_id_seq;
-    const query = `
+  const query = `
+    CREATE SEQUENCE universities_id_seq;
     CREATE TABLE universities (
       id INT NOT NULL DEFAULT NEXTVAL('universities_id_seq'),
       userId text,
@@ -18,7 +18,7 @@ export default async function migration(client) {
     );
 
   `;
-    // await client.query(query);
+    await client.query(query);
 
     const file = JSON.parse(await fs.readFile("./backend/ros-data/dormitories.json", "utf8"));
     console.log('file ')

@@ -51,7 +51,7 @@ const RoomCard: React.FC<RoomCardProps> = (props) => {
 
     return (
         <li>
-            <a href="">
+            <a href="#/roomPage">
                 <article className="section-wrap card">
                     <img src={mainInfo.photos[0] || ''} alt="" />
                     <Title level={4}>{mainInfo.name}</Title>

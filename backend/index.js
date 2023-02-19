@@ -47,7 +47,7 @@ fastify.get('/', async (request, reply) => {
 
 //возвращает список вузов
 fastify.get('/api/universities', async (request, reply) => {
-    const file = await fs.readFile("./ros-data/universities.json");
+    const file = await fs.readFile("../ros-data/universities.json");
     const data = await JSON.parse(file.toString());
     // console.log(data)
     return {
@@ -57,7 +57,7 @@ fastify.get('/api/universities', async (request, reply) => {
 
 //возвращает список общаг
 fastify.get('/api/dormitories', async (request, reply) => {
-    const file = await fs.readFile("./ros-data/dormitories.json");
+    const file = await fs.readFile("../ros-data/dormitories.json");
     const data = await JSON.parse(file.toString());
     // console.log(data)
     return {
@@ -68,7 +68,7 @@ fastify.get('/api/dormitories', async (request, reply) => {
 
 //возвращает список комнат
 fastify.get('/api/rooms', async (request, reply) => {
-    const file = await fs.readFile("./ros-data/rooms.json");
+    const file = await fs.readFile("../ros-data/rooms.json");
     const data = await JSON.parse(file.toString());
     // console.log(data)
     return {
@@ -78,7 +78,7 @@ fastify.get('/api/rooms', async (request, reply) => {
 
 //возвращает список событий
 fastify.get('/api/events', async (request, reply) => {
-    const file = await fs.readFile("./ros-data/events.json");
+    const file = await fs.readFile("../ros-data/events.json");
     const data = await JSON.parse(file.toString());
     // console.log(data)
     return {
@@ -87,7 +87,7 @@ fastify.get('/api/events', async (request, reply) => {
 })
 //возвращает список лабораторий
 fastify.get('/api/labs', async (request, reply) => {
-    const file = await fs.readFile("./ros-data/labs.json");
+    const file = await fs.readFile("../ros-data/labs.json");
     const data = await JSON.parse(file.toString());
     // console.log(data)
     return {

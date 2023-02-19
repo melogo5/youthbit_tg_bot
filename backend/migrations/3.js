@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 
 export default async function migration(client) {
-    const file = JSON.parse(await fs.readFile("./ros-data/dormitories.json", "utf8"));
+    const file = JSON.parse(await fs.readFile("./backend/ros-data/dormitories.json", "utf8"));
     for (let i=0; i<file.length; i++) {
         const dorm = file[i];
         const details = dorm['details'];

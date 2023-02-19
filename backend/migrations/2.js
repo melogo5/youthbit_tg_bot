@@ -1,5 +1,4 @@
 import { promises as fs } from "fs";
-
 export default async function migration(client) {
     // CREATE SEQUENCE universities_id_seq;
     const query = `
@@ -21,7 +20,7 @@ export default async function migration(client) {
   `;
     // await client.query(query);
 
-    const file = JSON.parse(await fs.readFile("./ros-data/universities.json", "utf8"));
+    const file = JSON.parse(await fs.readFile("./backend/ros-data/dormitories.json", "utf8"));
     console.log('file ')
     for (let i=0; i<file.length; i++) {
         const uni = file[i];

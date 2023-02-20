@@ -11,8 +11,8 @@
 
 # Основной стек технологий
 - JavaScript, Typescript
-- Telegraph.js
-- React.js
+- Telegraf.js
+- React
 - Webpack, Babel
 - PostgreSQL, SQL
 - GIT

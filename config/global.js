@@ -16,6 +16,12 @@ const config = {
       url: "https://08cb-94-41-17-5.ngrok.io"
     }
   },
+  backend: {
+    http: {
+      host: "0.0.0.0",
+      port: 3000
+    }
+  },
   frontend: {
     port: 8080
   }

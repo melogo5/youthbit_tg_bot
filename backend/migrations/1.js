@@ -1,10 +1,12 @@
 import { promises as fs } from "fs";
+import * as url from 'url';
 
 export default async function migration(client) {
     const query = `
-    CREATE SEQUENCE dormitories_id_seq;
-    CREATE TABLE dormitories (
-      id INT NOT NULL DEFAULT NEXTVAL('dormitories_id_seq'),
+    DROP TABLE IF EXISTS public.dormitories;
+
+    CREATE TABLE public.dormitories (
+      id UUID NOT NULL default public.uuid_generate_v4(),
       userId text,
       universityId text,
       name text,
@@ -23,16 +25,22 @@ export default async function migration(client) {
   `;
     await client.query(query);
 
-    const file = JSON.parse(await fs.readFile("./backend/ros-data/dormitories.json", "utf8"));
+    const __filename = url.fileURLToPath(import.meta.url);
+    const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+    const dormitories = url.fileURLToPath(new URL("../../backend/ros-data/dormitories.json", import.meta.url));
+    const json = await fs.readFile(dormitories, "utf8");
+    const file = JSON.parse(json);
+
     for (let i=0; i<file.length; i++) {
         const dorm = file[i];
-        
+
         const userId = dorm['userId'];
         const universityId = dorm['universityId'];
         const details = dorm['details']
         let city, name, maxDays, minDays;
         city = name = maxDays = minDays = '';
-        
+
         if (details) {
             const mainInfo = details['main-info']
             if (mainInfo) {
@@ -62,7 +70,7 @@ export default async function migration(client) {
         // console.log(labQuery);
         await client.query(labQuery)
     }
-    
+
     await client.query(`INSERT INTO public.migrations (id) VALUES ('1');`);
     console.log`migration 1 created`;
 }

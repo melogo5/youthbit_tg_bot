@@ -108,10 +108,7 @@ const start = async () => {
 
         await migrations(client);
 
-        await fastify.listen({
-            port: 8080,
-            host: "0.0.0.0"
-        })
+        await fastify.listen(config.backend.http);
     } catch (err) {
         fastify.log.error(err)
         process.exit(1)
